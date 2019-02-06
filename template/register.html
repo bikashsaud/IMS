@@ -1,0 +1,37 @@
+
+{%extends 'master/base.html' %}
+{% load widget_tweaks %}
+{% load bootstrap4 %}
+<!-- {% bootstrap_css %}
+{% bootstrap_javascript jquery='slim' %} -->
+{% block body %}
+<div class="main" role="main">
+ <!-- Page Heading -->
+ <section class="page-heading">
+   <div class="container">
+     <div class="row">
+       <div class="col-md-12 form-heading">
+         <h1 class="text-Uppercase">Register New User</h1>
+       </div>
+     </div>
+   </div>
+ </section>
+</div>
+<div class="container">
+{% bootstrap_messages %}
+  <div class="col-lg-4 offset-lg-4 col-sm-10 offset-sm-1">
+    <div class="card my-6">
+        <div class="card-header text-center">
+          <h3> Register to System</h3>
+        </div>
+        <div class="card-body">
+          <form class="" action="#" method="post">
+              {% bootstrap_form form %}
+              {%csrf_token%}
+              <button type="submit" class="btn btn-success">Sign Up</button> &nbsp;&nbsp;&nbsp;<a href="#"></a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{%endblock%}

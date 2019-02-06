@@ -1,0 +1,32 @@
+{% load staticfiles %}
+
+<html>
+
+  <head>
+    <title>
+
+    </title>
+
+<!--===================================
+          Mobile Specific Metas
+=======================================-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fonts/font-awesome/css/font-awesome.css' %}">
+	<link rel="stylesheet" href="{% static 'css/fonts/entypo/css/entypo.css' %}">
+  <link rel="stylesheet" href="{% static 'css/themes.css' %}">
+  <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+  </head>
+<body>
+        {% include 'partial/header.html' %}
+        {% block body %}
+
+        {% endblock %}
+        {% include 'partial/footer.html' %}
+<script type="text/javascript" scr="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" scr="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" scr="{% static 'js/bootstrap.js' %}"></script>
+</body>
+
+</html>
