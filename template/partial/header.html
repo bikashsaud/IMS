@@ -1,9 +1,7 @@
-{%block body%}
+<!-- {%block body%}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-light">
   <a class="navbar-brand" href="{% url 'index' %}">IMS Nepal</a>
-  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button> -->
+
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
@@ -31,24 +29,20 @@
           <a class="dropdown-item" href="#">JEEVAN LAXMI - TRIPLE BENEFIT SCHEME WITH BONUS</a>
         </div>
       </li>
-      <li>
-        {% if request.user.is_authenticated%}
-        <a class="nav-link" href="#"><b>REGISTER NEW USER</b></a>
-        {% endif%}
-      </li>
+
     </ul>
   </div>
 <ul class="navbar-nav">
   {% if request.user.is_authenticated %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'UserProfile:logout' %}">Log Out</a>
+        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'UserProfile:register'%}">Sign Up</a>
+        <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
       </li>
     {% else %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'UserProfile:login'%}">Sign In</a>
+        <a class="nav-link" href="{% url 'login' %}">Sign In</a>
       </li>
     {% endif %}
 </ul>
@@ -56,5 +50,83 @@
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
+</nav>
+{% endblock%} -->
+{%load staticfiles%}
+{%block body%}
+<nav class="navbar navbar-expand-lg bg-dark" style="font-size:20px;">
+  <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/healthLogo.png'%}" alt="" height=40px width=50px;></a>
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">Product</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">General</a>
+      </li>-->
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contect Us</a>
+      </li>
+    </ul>
+  </div>
+  <span style="padding-right:50px;">
+<ul class="navbar-nav" >
+  {% if request.user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'register'%}">Sign Up</a>
+      </li>
+      <li>
+          <span class="image1">
+            {% if ins.image %}
+            <img src='{{ins.image.url}}' alt="{{request.user.name}}" height=40px width=50px;>
+            {% else %}
+              {% if request.user.is_admin%}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'adminsdb'%}">{{request.user.email}}</a>
+                </li>
+                {% elif request.user.is_doctor%}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'doctordb'%}">{{request.user.email}}</a>
+                </li>
+                {% elif request.user.is_medical%}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'medicaldb'%}">{{request.user.email}}</a>
+                </li>
+                {% elif request.user.is_staff%}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'staffdb'%}">{{request.user.email}}</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'labdb'%}">{{request.user.email}}</a>
+                </li>
+                {%endif%}
+            {% endif %}
+          </span>
+      </li>
+
+    {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'login'%}">Sign In</a>
+      </li>
+    {% endif %}
+</ul>
+</span>
+  <!-- <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form> -->
 </nav>
 {% endblock%}

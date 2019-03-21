@@ -6,8 +6,7 @@ from Agent.models import Agent
 class Client(models.Model):
     Form_number = models.IntegerField(unique=True)
     Branch_name = models.CharField(max_length=200, null=True, blank=True)
-    client_license_code = models.ForeignKey(Agent, on_delete=models.CASCADE, default=None,
-                                            related_name='Client')
+    client_license_code = models.ForeignKey(Agent, on_delete=models.CASCADE,related_name='Client')
     Name = models.CharField(max_length=200, null=True, blank=True)
     Gender_choices = (('Male', 'MALE'), ('Female', 'FEMALE'))
     gender = models.CharField(max_length=20, choices=Gender_choices, default=None)

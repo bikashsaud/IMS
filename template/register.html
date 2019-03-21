@@ -22,15 +22,19 @@
   <div class="col-lg-4 offset-lg-4 col-sm-10 offset-sm-1">
     <div class="card my-6">
         <div class="card-header text-center">
-          <h3> Register to System</h3>
+          <h3> Register New Staff to System</h3>
         </div>
         <div class="card-body">
           <form class="" action="#" method="post">
               {% bootstrap_form form %}
               {%csrf_token%}
-              <button type="submit" class="btn btn-success">Sign Up</button> &nbsp;&nbsp;&nbsp;<a href="#"></a>
+              <button type="submit" class="btn btn-success">Sign Up</button> &nbsp;&nbsp;&nbsp; <hr>
           </form>
+          --OR--<br>
+          <h4><u>Register Client/Agent To System</u></h4>
+          <a href="{%url 'Client:register_client'%}"><button type="button" name="button" class='btn btn-success'>Register Client</button></a><a href="{%url 'Client:register_agent'%}"><button type="button" name="button"  class='btn btn-success'>Register Agent</button></a>
         </div>
+
       </div>
     </div>
   </div>

@@ -1,0 +1,48 @@
+{% extends 'master/base.html' %}
+{% load widget_tweaks %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{%load staticfiles%}
+{% block body %}
+<div class="main" role="main">
+  <!-- Page Heading -->
+  <section class="page-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 form-heading">
+          <h1 class='text-Uppercase'>Register Client/Agent</h1>
+          <h2>Insurance Management System</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="" style=' background :#bcf7aa;'><br>
+<div class="container" style="padding-right:;">
+  <div class="row">
+{% bootstrap_messages %}
+<!--  Cilient Register Form Start-->
+  <div class="col-md-6">
+  <div class="col-lg- offset-lg-7 col-sm-12 offset-sm-0">
+    <div class="card my-6">
+        <div class="card-header text-center">
+          <h3> Client Register to System</h3>
+        </div>
+        <div class="card-body">
+          <form class="" action="#" method="post">
+              {% bootstrap_form form %}
+              {%csrf_token%}
+              <button type="submit" class="btn btn-success">Register This Client</button> &nbsp;&nbsp;&nbsp;
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  Agent Register Form satrt-->
+
+  </div>
+</div>
+</div>
+{%endblock%}

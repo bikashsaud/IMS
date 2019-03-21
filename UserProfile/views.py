@@ -23,7 +23,7 @@ def signin(request):
         return redirect('index')
     con={'con':form,}
     return render(request,'login.html',con)
-
+@login_required
 def signout(request):
     logout(request)
-    return redirect('UserProfile:login')
+    return redirect('login')

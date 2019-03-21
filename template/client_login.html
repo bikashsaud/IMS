@@ -16,6 +16,13 @@
   </section>
 </div>
   <div class="container" style="">
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <p class="{{ message.tags }}">{{ message }}</p>
+      {% endfor %}
+    </ul>
+    {% endif %}
   {% bootstrap_messages %}
     <div class="col-lg-4 offset-lg-4 col-sm-10 offset-sm-1">
       <div class="card my-6">
@@ -23,11 +30,10 @@
             <h3> Login to System</h3>
           </div>
           <div class="card-body">
-            <form class="" action="#" method="post">
-              <i class="fa fa-"></i>
-                {% bootstrap_form con %}
-                {%csrf_token%}
-                <button type="submit" class="btn btn-success">Sign In</button> &nbsp;&nbsp;&nbsp;<a href="#">Forget Password ?</a>
+        <form class="" action="" method="post">
+            {%bootstrap_form form%}
+              {%csrf_token%}
+              <button type="submit" name="button">Submit</button>
             </form>
           </div>
         </div>
